@@ -36,7 +36,6 @@
  */
 (function($) {
    $.fn.placeholder = function(placeholder, options) {
-     var flagClass = "placeholder";
      options = $.extend({}, $.fn.placeholder.defaults, options);
      var has_value = function(value) {
        return function() {
@@ -54,7 +53,7 @@
        .blur(maybe_set_placeholder)
        .each(maybe_set_placeholder)
        .closest("form").submit(function() {
-                                 $(this).find("input." + flagClass).each(maybe_unset_placeholder);
+                                 $(this).find("input." + options.flagClass).each(maybe_unset_placeholder);
                                })
        .end();
    };
